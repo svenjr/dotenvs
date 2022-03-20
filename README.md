@@ -3,9 +3,9 @@
 This public repo simply makes my life easier by being my source-of-truth for my "dotenvs" - the files that pretty much control the configuration of any tools I use.
 
 Currently, those include:
-- .zshrc (ZSH config)
-- .bash_profile (bash config)
-- .vimrc (vim config)
+- `.zshrc` (ZSH config)
+- `.bash_profile` (bash config)
+- `.vimrc` (vim config)
 
 So that I don't forget: To get these working on a new system/machine, make sure to git clone this repo and then symlink correctly like so:
 
