@@ -4,21 +4,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="half-life"
 ZSH_THEME="zsh2000"
 
 export ZSH_2000_DISABLE_RVM='true'
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,31 +39,10 @@ export ZSH_2000_DISABLE_RVM='true'
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
   zsh-autosuggestions
@@ -81,36 +50,62 @@ plugins=(
   history
 )
 
+# Let's pull out dotenvs repo to make sure we are up-to-date
+cd ~/Documents/dotenvs && git pull -qf && cd
+
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# Load local ENVs which will not come to git
+if [ -f ~/.env ]; then
+    # Load Environment Variables
+    set -o allexport; source ~/.env; set +o allexport
+fi
 
-# export MANPATH="/usr/local/man:$MANPATH"
+######################### ALIASES #########################
+# Aliases which use secret passwords loaded from .env
+alias atlas-dev="psql postgres://$ATLAS_DEV_USER:$ATLAS_DEV_PASS@titicaca-development-atlas.$AWS_DEV_HOST:5432/atlas_production"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+alias atlas-prod="psql postgres://$ATLAS_PROD_USER:$ATLAS_PROD_PASS@annency-production-atlas.$AWS_PROD_HOST:5432/atlas_production"
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+alias xenos-dev="psql postgres://$XEN_DEV_USER:$XENO_DEV_PASS@titicaca-development-xenos.$AWS_DEV_HOST:5432/xenos"
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+alias xenos-prod="psql postgres://$XEN_PROD_USER:$XENO_PROD_PASS@annency-production-xenos.$AWS_PROD_HOST:5432/xenos"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias users-prod="psql postgres://$USER_PROD_USER:$USER_PROD_PASS@annecy-production-users.$AWS_PROD_HOST:5432/users"
 
+alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehouse.$AWS_DEV_HOST/data_warehouse"
+
+# Other Aliases
+# Kube contexts
+alias awsume=". awsume"
+
+alias kcuc-dev='awsume fatmap-development-engineering && kubectl config set current-context platform-development'
+alias kcuc-prod='awsume fatmap-production-engineering && kubectl config set current-context platform-production'
+
+alias docker_kill_everything="sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
+
+# Jump into the devops cotainer
+alias k8s="sudo cd && cd ~/Documents/platform-config/ && make run"
+
+# Open a vim editor for the rc
 alias profile="cd && vim .zshrc"
+
+# Resource the profile
 alias resource="source ~/.zshrc"
 
 #show me sizes of things in my current directory
 alias sizes='sudo du -sh */'
+
+clear
+echo -e "STATUS: \033[92mACTIVE\033[0m
+Welcome :)
+
+Some helpful tools:
+  - sizes: get the size of things in the current directory
+  - resource: re-source this RC file
+  - profile: vim edit this RC file
+  - kcuc-dev: dev k8s context
+  - kcuc-prod: prod k8s context
+  - k8s: jump into the platform-config container
+  - google [search]: google search straight from the terminal
+  - hs [search]: search your history for past commands with containing this term"
