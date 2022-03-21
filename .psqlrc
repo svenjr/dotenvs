@@ -6,9 +6,9 @@
 \set QUIET ON
 
 -- Better PS1
---\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%n@%[%033[1m%]%/%[%033[0m%]%R%# '
--- \set PROMPT1 '%[%033[1;32;40m%]%M:%> %n@%/%[%033[0m%]% # '
-\set PROMPT1 '%[%033[1;32;40m%]%x%M:%> %033[0m%]% => '
+-- \set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%n@%[%033[1m%]%/%[%033[0m%]%R%# '
+ \set PROMPT1 '%[%033[1;32;40m%]%M:%> %n@%/%[%033[0m%]% # '
+-- \set PROMPT1 '%[%033[1;32;40m%]%x%M:%> %033[0m%]% => '
 
 -- Show how long each query took
 \timing
