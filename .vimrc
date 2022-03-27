@@ -33,8 +33,8 @@ set termguicolors
 
 " Set colorscheme
 " colorscheme last256
- colo sialoquent
-" colo diokai
+" colo sialoquent
+ colo diokai
 " colo luna-term
 " colo jellybeans
 " colo blackboard
