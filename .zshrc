@@ -50,6 +50,7 @@ plugins=(
   history
 )
 
+# TODO: This causes new terminals to always open at `cd`
 # Let's pull out dotenvs repo to make sure we are up-to-date
 cd ~/Documents/dotenvs && git pull -qf && cd
 
