@@ -54,6 +54,10 @@ plugins=(
 # Let's pull out dotenvs repo to make sure we are up-to-date
 cd ~/Documents/dotenvs && git pull -qf && cd
 
+# Force git to use our .gitignore file here as global
+# TODO: For some reason the symlink does not work
+git config --global core.excludesfile ~/Documents/dotenvs/.gitignore
+
 source $ZSH/oh-my-zsh.sh
 
 # Load local ENVs which will not come to git
