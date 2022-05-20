@@ -24,3 +24,6 @@ __pycache__/
 ehthumbs.db
 Icon?
 Thumbs.db
+
+# VS_Code
+settings.json
