@@ -68,9 +68,9 @@ alias atlas-dev="psql postgres://$ATLAS_DEV_USER:$ATLAS_DEV_PASS@titicaca-develo
 
 alias atlas-prod="psql postgres://$ATLAS_PROD_USER:$ATLAS_PROD_PASS@annency-production-atlas.$AWS_PROD_HOST:5432/atlas_production"
 
-alias xenos-dev="psql postgres://$XEN_DEV_USER:$XENO_DEV_PASS@titicaca-development-xenos.$AWS_DEV_HOST:5432/xenos"
+alias xenos-dev="psql postgres://$XEN_DEV_USER:$XEN_DEV_PASS@titicaca-development-xenos.$AWS_DEV_HOST:5432/xenos"
 
-alias xenos-prod="psql postgres://$XEN_PROD_USER:$XENO_PROD_PASS@annency-production-xenos.$AWS_PROD_HOST:5432/xenos"
+alias xenos-prod="psql postgres://$XEN_PROD_USER:$XEN_PROD_PASS@annency-production-xenos.$AWS_PROD_HOST:5432/xenos"
 
 alias users-prod="psql postgres://$USER_PROD_USER:$USER_PROD_PASS@annecy-production-users.$AWS_PROD_HOST:5432/users"
 
@@ -79,6 +79,8 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 # Other Aliases
 # Kube contexts
 alias awsume=". awsume"
+alias awsume-default="awsume fatmap-default-engineering -o fatmap-default && awsume -u"
+alias awsume-root="awsume fatmap-root-engineering"
 
 alias kcuc-dev='awsume fatmap-development-engineering && kubectl config set current-context platform-development'
 alias kcuc-prod='awsume fatmap-production-engineering && kubectl config set current-context platform-production'
@@ -96,6 +98,11 @@ alias resource="source ~/.zshrc"
 
 #show me sizes of things in my current directory
 alias sizes='sudo du -sh */'
+
+alias switch_psql_14='brew unlink postgresql && brew link postgresql'
+alias switch_psql_13='brew link --overwrite postgresql@13'
+
+alias sqs-grep='/Users/sven/sqs-grep'
 
 clear
 echo -e "STATUS: \033[92mACTIVE\033[0m
