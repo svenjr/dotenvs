@@ -69,6 +69,10 @@ fi
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
+# Source Chruby and add magic lines
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
+
 ######################### ALIASES #########################
 # Aliases which use secret passwords loaded from .env
 alias atlas-dev="psql postgres://$ATLAS_DEV_USER:$ATLAS_DEV_PASS@titicaca-development-atlas.$AWS_DEV_HOST:5432/atlas_production"
