@@ -14,6 +14,9 @@ filetype plugin indent on
 " Turn off modelines
 set modelines=0
 
+" Spell Check to the best english
+set spell spelllang=en_us
+
 " Automatically wrap text that extends beyond the screen length.
 set wrap
 
