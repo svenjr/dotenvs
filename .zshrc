@@ -90,7 +90,7 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 # Other Aliases
 # Kube contexts
 alias awsume=". awsume"
-fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
+alias m-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias awsume-root="awsume fatmap-root-engineering"
 
 alias kcuc-dev='kubectl config set current-context platform-development'
