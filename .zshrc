@@ -90,11 +90,11 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 # Other Aliases
 # Kube contexts
 alias awsume=". awsume"
-alias awsume-default="awsume fatmap-default-engineering -o fatmap-default"
+fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias awsume-root="awsume fatmap-root-engineering"
 
-alias kcuc-dev='awsume fatmap-development-engineering && kubectl config set current-context platform-development'
-alias kcuc-prod='awsume fatmap-production-engineering && kubectl config set current-context platform-production'
+alias kcuc-dev='kubectl config set current-context platform-development'
+alias kcuc-prod='kubectl config set current-context platform-production'
 
 alias docker_kill_everything="sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 
@@ -128,3 +128,6 @@ Some helpful tools:
   - k8s: jump into the platform-config container
   - google [search]: google search straight from the terminal
   - hs [search]: search your history for past commands with containing this term"
+export AWS_CONFIG_FILE=/Users/sven/.aws/fatmap-config
+alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
+alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
