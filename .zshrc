@@ -115,6 +115,8 @@ alias switch_psql_13='brew link --overwrite postgresql@13'
 
 alias sqs-grep='/Users/sven/sqs-grep'
 
+alias check-unsets='echo "Dev:" && kustomize build ./deploy/clusters/dev/platform-development | grep unset; echo "Prod:" && kustomize build ./deploy/clusters/prod/platform-production | grep unset'
+
 clear
 echo -e "STATUS: \033[92mACTIVE\033[0m
 Welcome :)
