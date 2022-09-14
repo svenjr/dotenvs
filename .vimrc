@@ -8,6 +8,9 @@ filetype off
 " Turn on syntax highlighting.
 syntax on
 
+" Make sure backspaces work
+backspace=indent,eol,start
+
 " For plug-ins to load correctly.
 filetype plugin indent on
 
