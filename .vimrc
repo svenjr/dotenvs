@@ -9,7 +9,7 @@ filetype off
 syntax on
 
 " Make sure backspaces work
-backspace=indent,eol,start
+set backspace=indent,eol,start
 
 " For plug-ins to load correctly.
 filetype plugin indent on
