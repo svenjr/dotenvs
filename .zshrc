@@ -83,9 +83,9 @@ alias xenos-dev="psql postgres://$XEN_DEV_USER:$XEN_DEV_PASS@titicaca-developmen
 
 alias xenos-prod="psql postgres://$XEN_PROD_USER:$XEN_PROD_PASS@annency-production-xenos.$AWS_PROD_HOST:5432/xenos"
 
-alias avy-dev="psql postgres://$AVY_DEV_USER:$AVY_DEV_PASS@tahoe-development-avalanche.$AWS_DEV_HOST:5432/avalanche"
+alias avy-dev="psql postgres://$AVY_DEV_USER:$AVY_DEV_PASS@tahoe-development-avalanche-bulletin.$AWS_DEV_HOST:5432/avalanche"
 
-alias avy-prod="psql postgres://$AVY_PROD_USER:$AVY_PROD_PASS@arrowhead-production-avalanche.$AWS_PROD_HOST:5432/avalanche"
+alias avy-prod="psql postgres://$AVY_PROD_USER:$AVY_PROD_PASS@arrowhead-production-avalanche-bulletin.$AWS_PROD_HOST:5432/avalanche"
 
 alias users-prod="psql postgres://$USER_PROD_USER:$USER_PROD_PASS@annecy-production-users.$AWS_PROD_HOST:5432/users"
 
