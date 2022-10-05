@@ -48,6 +48,7 @@ plugins=(
   zsh-autosuggestions
   web-search
   history
+  kubectl
 )
 
 # TODO: This causes new terminals to always open at `cd`
@@ -96,6 +97,7 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 alias awsume=". awsume"
 alias m-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias awsume-root="awsume fatmap-root-engineering"
+alias awsume-pc="awsume fatmap-root-engineering --role-duration 3600"
 
 alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
