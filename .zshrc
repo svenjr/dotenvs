@@ -70,6 +70,9 @@ fi
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
+# Export path for ASDF
+export PATH="/Users/sven/.asdf/shims:$PATH"
+
 # Source Chruby and add magic lines
 source /usr/local/opt/chruby/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
