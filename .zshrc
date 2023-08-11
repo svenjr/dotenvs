@@ -95,6 +95,8 @@ alias users-prod="psql postgres://$USER_PROD_USER:$USER_PROD_PASS@annecy-product
 
 alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehouse.$AWS_DEV_HOST/data_warehouse"
 
+alias pissh="ssh 192.168.1.5"
+
 # Other Aliases
 # Kube contexts
 alias awsume=". awsume"
@@ -142,3 +144,4 @@ Some helpful tools:
 export AWS_CONFIG_FILE=/Users/sven/.aws/fatmap-config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)

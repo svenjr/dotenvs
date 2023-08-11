@@ -35,14 +35,14 @@ set number
 " Highlight matching search patterns
 set hlsearch
 
-set termguicolors
+"set termguicolors
 
 " Set colorscheme
 " colorscheme last256
- colo sialoquent
+" colo sialoquent
 " colo diokai
 " colo luna-term
-" colo jellybeans
+ colo jellybeans
 " colo blackboard
 " colo Atelier_SavannaLight
 " colo ayu
