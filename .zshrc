@@ -6,9 +6,10 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="half-life"
-ZSH_THEME="zsh2000"
+# ZSH_THEME="zsh2000"
+ZSH_THEME="typewritten"
 
-export ZSH_2000_DISABLE_RVM='true'
+# export ZSH_2000_DISABLE_RVM='true'
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
