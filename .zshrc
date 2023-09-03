@@ -39,7 +39,7 @@ zinit snippet OMZP::command-not-found
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
-  
+
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
