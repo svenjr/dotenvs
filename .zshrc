@@ -6,9 +6,40 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="half-life"
-ZSH_THEME="zsh2000"
+# ZSH_THEME="zsh2000"
 
-export ZSH_2000_DISABLE_RVM='true'
+# export ZSH_2000_DISABLE_RVM='true'
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# Download Zinit, if it's not there yet
+if [ ! -d "$ZINIT_HOME" ]; then
+    mkdir -p "$(dirname $ZINIT_HOME)"
+    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+fi
+
+source "${ZINIT_HOME}/zinit.zsh"
+
+zinit light ohmyzsh/ohmyzsh
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit snippet OMZP::git
+zinit snippet OMZP::sudo
+zinit snippet OMZP::aws
+zinit snippet OMZP::kubectl
+zinit snippet OMZP::kubectx
+zinit snippet OMZP::rust
+zinit snippet OMZP::command-not-found
+
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+  
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -67,6 +98,8 @@ if [ -f ~/.env ]; then
     set -o allexport; source ~/.env; set +o allexport
 fi
 
+export PATH=$PATH:/usr/local/bin:$PATH
+
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -103,6 +136,9 @@ alias awsume=". awsume"
 alias m-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias awsume-root="awsume fatmap-root-engineering"
 alias awsume-pc="awsume fatmap-root-engineering --role-duration 3600"
+
+# Target neovim for vim
+alias vim=nvim
 
 alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
@@ -145,3 +181,8 @@ export AWS_CONFIG_FILE=/Users/sven/.aws/fatmap-config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
