@@ -162,6 +162,8 @@ alias switch_psql_13='brew link --overwrite postgresql@13'
 
 alias sqs-grep='/Users/sven/sqs-grep'
 
+alias git-cleanup="git fetch --prune && git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D"
+
 alias check-unsets='echo "Dev:" && kustomize build ./deploy/clusters/dev/platform-development | grep unset; echo "Prod:" && kustomize build ./deploy/clusters/prod/platform-production | grep unset'
 
 clear
@@ -186,3 +188,6 @@ alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Bat theme config.
+export BAT_THEME=tokyonight_moon
