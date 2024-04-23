@@ -160,7 +160,7 @@ alias profile="cd && vim .zshrc"
 alias resource="source ~/.zshrc"
 
 #show me sizes of things in my current directory
-alias sizes='sudo du -sh */ sort -rh'
+alias sizes='sudo du -sh */ | sort -rh'
 
 alias switch_psql_14='brew unlink postgresql && brew link postgresql'
 alias switch_psql_13='brew link --overwrite postgresql@13'
