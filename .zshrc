@@ -84,11 +84,11 @@ plugins=(
 
 # TODO: This causes new terminals to always open at `cd`
 # Let's pull out dotenvs repo to make sure we are up-to-date
-cd ~/Documents/dotenvs && git pull -qf && cd
+cd ~/Documents/checkouts/svenjr/dotenvs && git pull -qf && cd
 
 # Force git to use our .gitignore file here as global
 # TODO: For some reason the symlink does not work
-git config --global core.excludesfile ~/Documents/dotenvs/.gitignore
+git config --global core.excludesfile ~/Documents/checkouts/svenjr/dotenvs/.gitignore
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,8 +107,8 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/sven/.asdf/shims:$PATH"
 
 # Source Chruby and add magic lines
-source /usr/local/opt/chruby/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
+# source /usr/local/opt/chruby/share/chruby/chruby.sh
+# source /usr/local/share/chruby/auto.sh
 
 ######################### ALIASES #########################
 # Aliases which use secret passwords loaded from .env
