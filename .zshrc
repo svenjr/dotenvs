@@ -137,6 +137,11 @@ alias m-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && 
 alias awsume-root="awsume fatmap-root-engineering"
 alias awsume-pc="awsume fatmap-root-engineering --role-duration 3600"
 
+# Little arc window with search term on StartPage
+# Usage: arc example search
+alias arc='function _arc(){ arc-cli new-little-arc "https://www.startpage.com/sp/search?query=$(echo -n "$*" | sed "s/ /%20/g")&prfe=a74f607577f0385f78eb4fff745e994382b70cb29386c5fa0183ad4643ee777c335396e2f171b80547d91d7707bc94f7093651331005985ab3984e3d3593348b8c583ed34034793ed9"; };_arc'
+
+
 # Target neovim for vim
 alias vim=nvim
 
@@ -171,6 +176,7 @@ echo -e "STATUS: \033[92mACTIVE\033[0m
 Welcome :)
 
 Some helpful tools:
+  - arc [search]: open a little arc window to search startpage for something
   - sizes: get the size of things in the current directory
   - resource: re-source this RC file
   - profile: vim edit this RC file
