@@ -104,7 +104,7 @@ export PATH=$PATH:/usr/local/bin:$PATH
 export PATH="/opt/homebrew/bin:$PATH"
 
 # Export path for ASDF
-export PATH="/Users/sven/.asdf/shims:$PATH"
+export PATH="$HOME/.asdf/shims:$PATH"
 
 # Source Chruby and add magic lines
 # source /usr/local/opt/chruby/share/chruby/chruby.sh
@@ -165,7 +165,7 @@ alias sizes='sudo du -sh */ | sort -rh'
 alias switch_psql_14='brew unlink postgresql && brew link postgresql'
 alias switch_psql_13='brew link --overwrite postgresql@13'
 
-alias sqs-grep='/Users/sven/sqs-grep'
+alias sqs-grep='$HOME/sqs-grep'
 
 alias git-cleanup="git fetch --prune && git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D"
 
@@ -185,7 +185,7 @@ Some helpful tools:
   - k8s: jump into the platform-config container
   - google [search]: google search straight from the terminal
   - hs [search]: search your history for past commands with containing this term"
-export AWS_CONFIG_FILE=/Users/sven/.aws/fatmap-config
+export AWS_CONFIG_FILE=$HOME/.aws/fatmap-config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
