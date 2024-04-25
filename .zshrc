@@ -141,9 +141,11 @@ alias awsume-pc="awsume fatmap-root-engineering --role-duration 3600"
 # Usage: arc example search
 alias arc='function _arc(){ arc-cli new-little-arc "https://www.startpage.com/sp/search?query=$(echo -n "$*" | sed "s/ /%20/g")&prfe=a74f607577f0385f78eb4fff745e994382b70cb29386c5fa0183ad4643ee777c335396e2f171b80547d91d7707bc94f7093651331005985ab3984e3d3593348b8c583ed34034793ed9"; };_arc'
 
+# Open a new arc tab with the given org/repo name in a VS Code environment.
+alias vsd='vsd() { arc-cli new-tab "https://github.dev/$1" };vsd'
 
 # Target neovim for vim
-alias vim=nvim
+# alias vim=nvim
 
 alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
@@ -171,12 +173,16 @@ alias git-cleanup="git fetch --prune && git branch --format '%(refname:short) %(
 
 alias check-unsets='echo "Dev:" && kustomize build ./deploy/clusters/dev/platform-development | grep unset; echo "Prod:" && kustomize build ./deploy/clusters/prod/platform-production | grep unset'
 
+# Bat theme config.
+export BAT_THEME=tokyonight_moon
+
 clear
 echo -e "STATUS: \033[92mACTIVE\033[0m
 Welcome :)
 
 Some helpful tools:
   - arc [search]: open a little arc window to search startpage for something
+  - vsd [user/repo]: open a VSCode dev window in arc to edit the repo online
   - sizes: get the size of things in the current directory
   - resource: re-source this RC file
   - profile: vim edit this RC file
@@ -195,5 +201,3 @@ alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Bat theme config.
-export BAT_THEME=tokyonight_moon
