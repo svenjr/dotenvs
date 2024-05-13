@@ -144,6 +144,9 @@ alias arc='function _arc(){ arc-cli new-little-arc "https://www.startpage.com/sp
 # Open a new arc tab with the given org/repo name in a VS Code environment.
 alias vsd='vsd() { arc-cli new-tab "https://github.dev/$1" };vsd'
 
+alias cf='cf() { cd ~/Documents/checkouts/fatmap/"$1" };cf'
+alias cs='cs() { cd ~/Documents/checkouts/svenjr/"$1" };cs'
+
 # Target neovim for vim
 # alias vim=nvim
 
@@ -183,6 +186,8 @@ Welcome :)
 Some helpful tools:
   - arc [search]: open a little arc window to search startpage for something
   - vsd [user/repo]: open a VSCode dev window in arc to edit the repo online
+  - cf [repo name]: cd to a FATMAP checkout repo locally
+  - cs [repo name]: cd to a Svenjr checkout repo locally
   - sizes: get the size of things in the current directory
   - resource: re-source this RC file
   - profile: vim edit this RC file
