@@ -145,7 +145,11 @@ alias arc='function _arc(){ arc-cli new-little-arc "https://www.startpage.com/sp
 alias vsd='vsd() { arc-cli new-tab "https://github.dev/$1" };vsd'
 
 alias cf='cf() { cd ~/Documents/checkouts/fatmap/"$1" };cf'
-alias cs='cs() { cd ~/Documents/checkouts/svenjr/"$1" };cs'
+alias cs='cs() { cd ~/Documents/checkouts/strava/"$1" };cs'
+alias csv='csv() { cd ~/Documents/checkouts/svenjr/"$1" };csv'
+
+alias gcf='gcf() { cf && git clone https://github.com/FATMAP/"$1" };gcf'
+alias gcs='gcs() { cs && git clone https://github.com/strava/"$1" };gcs'
 
 # Target neovim for vim
 # alias vim=nvim
@@ -206,3 +210,6 @@ alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
+# Created by `pipx` on 2024-05-23 10:12:47
+export PATH="$PATH:/Users/smccall/.local/bin"
