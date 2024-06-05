@@ -151,6 +151,8 @@ alias csv='csv() { cd ~/Documents/checkouts/svenjr/"$1" };csv'
 alias gcf='gcf() { cf && git clone https://github.com/FATMAP/"$1" };gcf'
 alias gcs='gcs() { cs && git clone https://github.com/strava/"$1" };gcs'
 
+alias dm="osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
+
 # Target neovim for vim
 # alias vim=nvim
 
@@ -199,7 +201,8 @@ Some helpful tools:
   - kcuc-prod: prod k8s context
   - k8s: jump into the platform-config container
   - google [search]: google search straight from the terminal
-  - hs [search]: search your history for past commands with containing this term"
+  - hs [search]: search your history for past commands with containing this term
+  - dm: toggle dark mode on the system"
 export AWS_CONFIG_FILE=$HOME/.aws/fatmap-config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
