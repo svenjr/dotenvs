@@ -103,6 +103,9 @@ export PATH=$PATH:/usr/local/bin:$PATH
 # Go path
 export PATH=$(go env GOPATH)/bin:$PATH
 
+# Chruby
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
