@@ -100,6 +100,9 @@ fi
 
 export PATH=$PATH:/usr/local/bin:$PATH
 
+# Go path
+export PATH=$(go env GOPATH)/bin:$PATH
+
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
