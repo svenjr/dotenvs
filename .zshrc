@@ -80,6 +80,7 @@ plugins=(
   web-search
   history
   kubectl
+  fzf-zsh-plugin
 )
 
 # TODO: This causes new terminals to always open at `cd`
@@ -116,6 +117,9 @@ export PATH="$HOME/.asdf/shims:$PATH"
 # source /usr/local/opt/chruby/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
 
+# Set up fzf key binding for fuzzy search
+source <(fzf --zsh)
+
 ######################### ALIASES #########################
 # Aliases which use secret passwords loaded from .env
 alias atlas-dev="psql postgres://$ATLAS_DEV_USER:$ATLAS_DEV_PASS@titicaca-development-atlas.$AWS_DEV_HOST:5432/atlas_production"
@@ -136,12 +140,24 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 
 alias pissh="ssh 192.168.1.5"
 
+alias paasage='~/Documents/checkouts/strava/configuration/mesos/tools/paasage'
+
 # Other Aliases
 # Kube contexts
 alias awsume=". awsume"
 alias m-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias awsume-root="awsume fatmap-root-engineering"
 alias awsume-pc="awsume fatmap-root-engineering --role-duration 3600"
+
+# Strava
+# AWS and kube
+alias strava-sso="aws sso login --profile PowerUserAccess-200602884457"
+alias strava-login="strava-sso && ~/Documents/checkouts/strava/configuration/mesos/tools/aws-login"
+
+# Passage and Active
+alias paasage='~/Documents/checkouts/strava/configuration/mesos/tools/paasage'
+alias active-staging='paasage tasks --app-id active/staging/appserver shell'
+alias active-prod='paasage tasks --app-id active/prod/appserver shell'
 
 # Little arc window with search term on StartPage
 # Usage: arc example search
@@ -164,6 +180,8 @@ alias dm="osascript -e 'tell app \"System Events\" to tell appearance preference
 
 alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
+alias kcuc-pp='kubectl config set current-context prime-prod'
+alias kcuc-ps='kubectl config set current-context prime-staging'
 
 alias docker_kill_everything="sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 
@@ -208,7 +226,8 @@ Some helpful tools:
   - k8s: jump into the platform-config container
   - google [search]: google search straight from the terminal
   - hs [search]: search your history for past commands with containing this term
-  - dm: toggle dark mode on the system"
+  - dm: toggle dark mode on the system
+  - strava-login: use the aws script in config to login to AWS and docker"
 export AWS_CONFIG_FILE=$HOME/.aws/fatmap-config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
