@@ -80,7 +80,6 @@ plugins=(
   web-search
   history
   kubectl
-  fzf-zsh-plugin
 )
 
 # TODO: This causes new terminals to always open at `cd`
@@ -118,7 +117,7 @@ export PATH="$HOME/.asdf/shims:$PATH"
 # source /usr/local/share/chruby/auto.sh
 
 # Set up fzf key binding for fuzzy search
-source <(fzf --zsh)
+# source <(fzf --zsh)
 
 ######################### ALIASES #########################
 # Aliases which use secret passwords loaded from .env
