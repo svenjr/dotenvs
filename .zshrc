@@ -181,6 +181,8 @@ alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
 alias kcuc-pp='kubectl config set current-context prime-prod'
 alias kcuc-ps='kubectl config set current-context prime-staging'
+alias kcuc-mps='kubectl config set current-context map-platform-staging'
+alias kcuc-mpp='kubectl config set current-context map-platform-production'
 
 alias docker_kill_everything="sudo docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)"
 
