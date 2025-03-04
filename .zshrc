@@ -82,6 +82,9 @@ plugins=(
   kubectl
 )
 
+zplugin light jonmosco/kube-ps1
+PROMPT='$(kube_ps1)'$PROMPT
+
 # TODO: This causes new terminals to always open at `cd`
 # Let's pull out dotenvs repo to make sure we are up-to-date
 cd ~/Documents/checkouts/svenjr/dotenvs && git pull -qf && cd
@@ -242,3 +245,5 @@ alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 
 # Created by `pipx` on 2024-05-23 10:12:47
 export PATH="$PATH:/Users/smccall/.local/bin"
+
+unset ZSH_AUTOSUGGEST_USE_ASYNC
