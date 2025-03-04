@@ -59,7 +59,7 @@ set hlsearch
 
 set termguicolors     " enable true colors support
 let ayucolor="dark" " for mirage version of theme
-colorscheme ayu
+colorscheme tokyonight
 
 " Set colorscheme
 " colorscheme last256
