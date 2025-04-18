@@ -109,9 +109,6 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 # This exports the second path homebrew from M1 macs
 export PATH="/opt/homebrew/bin:$PATH"
 
-# Export path for ASDF
-export PATH="$HOME/.asdf/shims:$PATH"
-
 # Source Chruby and add magic lines
 # source /usr/local/opt/chruby/share/chruby/chruby.sh
 # source /usr/local/share/chruby/auto.sh
@@ -229,7 +226,7 @@ Some helpful tools:
   - hs [search]: search your history for past commands with containing this term
   - dm: toggle dark mode on the system
   - strava-login: use the aws script in config to login to AWS and docker"
-export AWS_CONFIG_FILE=$HOME/.aws/fatmap-config
+export AWS_CONFIG_FILE=$HOME/.aws/config
 alias fm-mfa-engineering='awsume fatmap-default-engineering -o fatmap-default && awsume -u'
 alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
@@ -244,3 +241,8 @@ alias fm-mfa-terraform='awsume fatmap-root-terraform --role-duration 3600'
 export PATH="$PATH:/Users/smccall/.local/bin"
 
 unset ZSH_AUTOSUGGEST_USE_ASYNC
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/smccall/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
