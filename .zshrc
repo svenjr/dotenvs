@@ -80,6 +80,7 @@ plugins=(
   web-search
   history
   kubectl
+  kubectx
 )
 
 # TODO: This causes new terminals to always open at `cd`
@@ -137,6 +138,8 @@ alias dwh="psql postgres://$DWH_USER:$DWH_PASS@titicaca-development-data-warehou
 alias pissh="ssh 192.168.1.5"
 
 alias paasage='~/Documents/checkouts/strava/configuration/mesos/tools/paasage'
+
+alias kx='kubectx'
 
 # Other Aliases
 # Kube contexts
