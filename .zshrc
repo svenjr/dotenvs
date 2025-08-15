@@ -6,6 +6,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="half-life"
 # ZSH_THEME="zsh2000"
