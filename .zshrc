@@ -7,6 +7,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH=$PATH:/Users/smccall/google-cloud-sdk/bin
 
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="half-life"
