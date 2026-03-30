@@ -9,6 +9,7 @@ Currently, those include:
 - `.psqlrc` (PSQL config)
 - `.gitignore` (Tell git what not to look for)
 - `.sqliterc` (SQLite Config)
+- `init.vim` (neovim config setup - belongs in `~/.config/nvim/init.vim`)
 
 So that I don't forget: To get these working on a new system/machine, make sure to git clone this repo and then symlink correctly like so:
 

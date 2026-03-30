@@ -180,7 +180,8 @@ alias gcs='gcs() { cs && git clone https://github.com/strava/"$1" };gcs'
 alias dm="osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
 
 # Target neovim for vim
-# alias vim=nvim
+alias vim=nvim
+export EDITOR='nvim'
 
 alias kcuc-dev='kubectl config set current-context platform-development'
 alias kcuc-prod='kubectl config set current-context platform-production'
