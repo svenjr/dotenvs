@@ -256,3 +256,4 @@ autoload -Uz compinit
 compinit
 # End of Docker CLI completions
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+
