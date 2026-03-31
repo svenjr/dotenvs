@@ -19,10 +19,16 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
+Plug 'neovim/nvim-lspconfig'
 call plug#end()
 " select the color scheme
 colorscheme catppuccin
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 map <silent> <C-n> :NERDTreeFocus<CR>
 lua require('claude-code').setup()
+
+lua << EOF
+vim.lsp.config('gopls', {})
+vim.lsp.enable('gopls')
+EOF
 
