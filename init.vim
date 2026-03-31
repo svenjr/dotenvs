@@ -3,6 +3,7 @@ set nu ru et
 set ts=2 sts=2 sw=2
 set cursorline
 set hlsearch
+set clipboard=unnamedplus
 
 set nocompatible   " be improved, required
 filetype off       " required
