@@ -5,6 +5,10 @@ set cursorline
 set hlsearch
 set clipboard=unnamedplus
 
+"Remap so that Opt-up and down move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+
 set nocompatible   " be improved, required
 filetype off       " required
 " store the plugins in plugged dir
@@ -25,10 +29,15 @@ call plug#end()
 colorscheme catppuccin-mocha
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 map <silent> <C-n> :NERDTreeFocus<CR>
-lua require('claude-code').setup()
 
 lua << EOF
+require('claude-code').setup({
+  window = {
+    split_ratio = 0.3,
+    position = "vertical",
+  }
+})
+
 vim.lsp.config('gopls', {})
 vim.lsp.enable('gopls')
 EOF
-
