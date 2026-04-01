@@ -22,7 +22,7 @@ Plug 'greggh/claude-code.nvim'
 Plug 'neovim/nvim-lspconfig'
 call plug#end()
 " select the color scheme
-colorscheme catppuccin
+colorscheme catppuccin-mocha
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 map <silent> <C-n> :NERDTreeFocus<CR>
 lua require('claude-code').setup()
