@@ -33,7 +33,7 @@ map <silent> <C-n> :NERDTreeFocus<CR>
 lua << EOF
 require('claude-code').setup({
   window = {
-    split_ratio = 0.3,
+    split_ratio = 0.45,
     position = "vertical",
   }
 })
