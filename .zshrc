@@ -257,3 +257,7 @@ compinit
 # End of Docker CLI completions
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
+# Nix
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
